@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "hphones/ruby"
+require "hphones"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,11 +1,10 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "hphones/ruby/version"
+require "hphones/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "hphones-ruby"
-  spec.version       = Hphones::Ruby::VERSION
+  spec.version       = Hphones::VERSION
   spec.authors       = ["Tyler Guillen"]
   spec.email         = ["tyguillen@gmail.com"]
 
