@@ -1,8 +1,21 @@
 get_index:
-  - key: cmd
-    value: getIndex
+  method: get
+  params:
+    - key: cmd
+      value: getIndex
 get_artist:
-  - key: cmd
-    value: getIndex
-  - key: id
-    required: true
+  method: get
+  params:
+    - key: cmd
+      value: getArtist
+    - key: id
+      required: true
+find_artist:
+  method: get
+  params:
+    - key: cmd
+      value: findArtist
+    - key: name
+      required: true
+    - key: limit
+      required: false

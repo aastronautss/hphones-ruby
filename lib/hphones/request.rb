@@ -13,7 +13,8 @@ class Hphones
 
     def get(params = {})
       conn = api.connection
-      Hphones::Response.new(conn.get(api.base_path, params))
+      compiled_params = params.merge({ 'apikey' => api.api_key })
+      Hphones::Response.new(conn.get(api.base_path, compiled_params))
     end
   end
 end

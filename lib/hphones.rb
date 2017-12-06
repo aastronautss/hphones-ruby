@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 require 'hphones/version'
+require 'hphones/endpoint'
 require 'hphones/request'
 require 'hphones/response'
 
 require 'faraday'
 
 ##
-# Base class for Hphones
+# Base class for Hphones. Contains API data and acts as a central place to call methods on.
 #
 class Hphones
+  # The root path of the Headphones API.
   ROOT_PATH = 'api'
 
   attr_reader :api_key
@@ -42,19 +44,23 @@ class Hphones
     @base_path ||= "#{http_root}/#{ROOT_PATH}"
   end
 
-  # Actions
+  def method_missing(mth, *args, &blk)
+    return Endpoint.new(mth, *args).fetch(self) if lookup_endpoint(mth)
 
-  def get_artist(artist_id)
-    request cmd: 'getArtist', id: artist_id
+    super
   end
 
-  def find_artist(name)
-    request cmd: 'findArtist', name: name
+  def respond_to_missing?(mth)
+    !!lookup_endpoint(mth)
   end
 
   private
 
   attr_reader :host, :port, :protocol, :http_root
+
+  def lookup_endpoint(endpoint)
+    Endpoint.lookup endpoint
+  end
 
   def request(params = {})
     req = Hphones::Request.new(self)
