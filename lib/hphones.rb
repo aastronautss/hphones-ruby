@@ -1,7 +1,14 @@
+# frozen_string_literal: true
+
 require 'hphones/version'
+require 'hphones/request'
+require 'hphones/response'
 
 require 'faraday'
 
+##
+# Base class for Hphones
+#
 class Hphones
   ROOT_PATH = 'api'
 
@@ -38,7 +45,11 @@ class Hphones
   # Actions
 
   def get_artist(artist_id)
-    request command: 'getArtist', id: artist_id
+    request cmd: 'getArtist', id: artist_id
+  end
+
+  def find_artist(name)
+    request cmd: 'findArtist', name: name
   end
 
   private
@@ -47,11 +58,11 @@ class Hphones
 
   def request(params = {})
     req = Hphones::Request.new(self)
-    res = req.get params
+    req.get params.merge(apikey: api_key)
   end
 
-  def dress_up_http_root(http_root)
-    if http_root =~ /^\//
+  def decorate_http_root(http_root)
+    if http_root =~ %r{^\/} || http_root.nil?
       http_root
     else
       "/#{http_root}"
