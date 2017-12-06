@@ -35,9 +35,9 @@ class Hphones
     end
 
     def fetch(api)
-      compile_params!
+      api_params = compile_params
       req = Hphones::Request.new(api)
-      req.send endpoint_info['method'], params
+      req.send endpoint_info['method'], api_params
     end
 
     private
@@ -50,13 +50,9 @@ class Hphones
     end
 
     def compile_params
-      dup.compile_params!
-    end
-
-    def compile_params!
       param_specs = endpoint_info['params']
       pairs = param_specs.map { |spec| compile_pair spec }
-      self.params = Hashie::Mash.new(Hash[pairs.compact])
+      Hash[pairs.compact]
     end
 
     def compile_pair(spec)
