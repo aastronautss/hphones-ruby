@@ -10,6 +10,39 @@ get_artist:
       value: getArtist
     - key: id
       required: true
+get_album:
+  method: get
+  params:
+    - key: cmd
+      value: getAlbum
+    - key: id
+      required: true
+get_upcoming:
+  method: get
+  params:
+    - key: cmd
+      value: getUpcoming
+get_wanted:
+  method: get
+  params:
+    - key: cmd
+      value: getWanted
+get_similar:
+  method: get
+  params:
+    - key: cmd
+      value: getSimilar
+get_history:
+  method: get
+  params:
+    - key: cmd
+      value: getHistory
+# NOT WORKING YET
+# get_logs:
+#   method: get
+#   params:
+#       - key: cmd
+#         value: getLogs
 find_artist:
   method: get
   params:
@@ -19,3 +52,173 @@ find_artist:
       required: true
     - key: limit
       required: false
+find_album:
+  method: get
+  params:
+    - key: cmd
+      value: findAlbum
+    - key: name
+      required: true
+    - key: limit
+      required: false
+add_artist:
+  method: get
+  params:
+    - key: cmd
+      value: addArtist
+    - key: id
+      required: true
+add_album:
+  method: get
+  params:
+    - key: cmd
+      value: addAlbum
+    - key: id
+      required: true
+del_artist:
+  method: get
+  params:
+    - key: cmd
+      value: delArtist
+    - key: id
+      required: true
+pause_artist:
+  method: get
+  params:
+    - key: cmd
+      value: pauseArtist
+    - key: id
+      required: true
+resume_artist:
+  method: get
+  params:
+    - key: cmd
+      value: resumeArtist
+    - key: id
+      required: true
+refresh_artist:
+  method: get
+  params:
+    - key: cmd
+      value: refreshArtist
+    - key: id
+      required: true
+queue_album:
+  method: get
+  params:
+    - key: cmd
+      value: queueAlbum
+    - key: id
+      required: true
+    - key: new
+      required: false
+    - key: lossless
+      required: false
+unqueue_album:
+  method: get
+  params:
+    - key: cmd
+      value: unqueueAlbum
+    - key: id
+      required: true
+force_search:
+  method: get
+  params:
+    - key: cmd
+      value: forceSearch
+force_process:
+  method: get
+  params:
+      - key: cmd
+        value: forceProcess
+      - key: dir
+        required: false
+force_active_artists_update:
+  method: get
+  params:
+    - key: cmd
+      value: forceActiveArtistsUpdate
+get_version:
+  method: get
+  params:
+    - key: cmd
+      value: getVersion
+check_github:
+  method: get
+  params:
+    - key: cmd
+      value: checkGithub
+shutdown:
+  method: get
+  params:
+    - key: cmd
+      value: shutdown
+restart:
+  method: get
+  params:
+    - key: cmd
+      value: restart
+update:
+  method: get
+  params:
+    - key: cmd
+      value: update
+get_artist_art:
+  method: get
+  params:
+    - key: cmd
+      value: getArtistArt
+    - key: id
+      required: true
+get_artist_info:
+  method: get
+  params:
+    - key: cmd
+      value: getArtistInfo
+    - key: id
+      required: true
+get_album_info:
+  method: get
+  params:
+    - key: cmd
+      value: getAlbumInfo
+    - key: id
+      required: true
+get_artist_thumb:
+  method: get
+  params:
+    - key: cmd
+      value: getArtistThumb
+    - key: id
+      required: true
+get_album_thumb:
+  method: get
+  params:
+    - key: cmd
+      value: getAlbumThumb
+    - key: id
+      required: true
+choose_specific_download:
+  method: get
+  params:
+    - key: cmd
+      value: choose_specific_download
+    - key: id
+      required: true
+download_specific_release:
+  method: get
+  params:
+    - key: cmd
+      value: download_specific_release
+    - key: id
+      required: true
+    - key: title
+      required: true
+    - key: size
+      required: true
+    - key: url
+      required: true
+    - key: provider
+      required: true
+    - key: kind
+      required: true
