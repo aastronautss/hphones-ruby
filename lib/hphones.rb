@@ -52,7 +52,7 @@ class Hphones
     super
   end
 
-  def respond_to_missing?(mth)
+  def respond_to_missing?(mth, *)
     !!lookup_endpoint(mth) || super
   end
 
