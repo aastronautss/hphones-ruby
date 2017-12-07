@@ -29,12 +29,13 @@ class Hphones
       end
     end
 
-    def initialize(key, params = {})
+    def initialize(key, api, params = {})
       @key = key.to_s
+      @api = api
       @params = Hashie::Mash.new params
     end
 
-    def fetch(api)
+    def fetch
       api_params = compile_params
       req = Hphones::Request.new(api)
       req.send endpoint_info['method'], api_params
@@ -42,8 +43,7 @@ class Hphones
 
     private
 
-    attr_accessor :params
-    attr_reader :key
+    attr_reader :key, :api, :params
 
     def endpoint_info
       @endpoint_info ||= self.class.endpoints[key]

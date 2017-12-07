@@ -44,14 +44,16 @@ class Hphones
     @base_path ||= "#{http_root}/#{ROOT_PATH}"
   end
 
+  # Methods to pass to Endpoint
+
   def method_missing(mth, *args, &blk)
-    return Endpoint.new(mth, *args).fetch(self) if lookup_endpoint(mth)
+    return fetch_from_endpoint(mth, *args) if lookup_endpoint(mth)
 
     super
   end
 
   def respond_to_missing?(mth)
-    !!lookup_endpoint(mth)
+    !!lookup_endpoint(mth) || super
   end
 
   private
@@ -62,9 +64,8 @@ class Hphones
     Endpoint.lookup endpoint
   end
 
-  def request(params = {})
-    req = Hphones::Request.new(self)
-    req.get params.merge(apikey: api_key)
+  def fetch_from_endpoint(endpoint, params = {})
+    Endpoint.new(endpoint, self, params).fetch
   end
 
   def decorate_http_root(http_root)
