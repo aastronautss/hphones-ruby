@@ -11,7 +11,7 @@ class Hphones
     class MissingParameterError < StandardError; end
 
     # The path to the endpoints file.
-    ENDPOINTS_PATH = File.join('data', 'endpoints.yml')
+    ENDPOINTS_PATH = File.join(File.dirname(__FILE__), '..', '..', 'data', 'endpoints.yml')
 
     class << self
       def lookup(key)
