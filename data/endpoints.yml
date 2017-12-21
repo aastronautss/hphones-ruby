@@ -1,10 +1,12 @@
 get_index:
   method: get
+  response: json
   params:
     - key: cmd
       value: getIndex
 get_artist:
   method: get
+  response: json
   params:
     - key: cmd
       value: getArtist
@@ -12,6 +14,7 @@ get_artist:
       required: true
 get_album:
   method: get
+  response: json
   params:
     - key: cmd
       value: getAlbum
@@ -19,32 +22,38 @@ get_album:
       required: true
 get_upcoming:
   method: get
+  response: json
   params:
     - key: cmd
       value: getUpcoming
 get_wanted:
   method: get
+  response: json
   params:
     - key: cmd
       value: getWanted
 get_similar:
   method: get
+  response: json
   params:
     - key: cmd
       value: getSimilar
 get_history:
   method: get
+  response: json
   params:
     - key: cmd
       value: getHistory
 # NOT WORKING YET
 # get_logs:
 #   method: get
+#   response: json
 #   params:
 #       - key: cmd
 #         value: getLogs
 find_artist:
   method: get
+  response: json
   params:
     - key: cmd
       value: findArtist
@@ -54,6 +63,7 @@ find_artist:
       required: false
 find_album:
   method: get
+  response: json
   params:
     - key: cmd
       value: findAlbum
@@ -63,6 +73,7 @@ find_album:
       required: false
 add_artist:
   method: get
+  response: status
   params:
     - key: cmd
       value: addArtist
@@ -70,6 +81,7 @@ add_artist:
       required: true
 add_album:
   method: get
+  response: status
   params:
     - key: cmd
       value: addAlbum
@@ -77,6 +89,7 @@ add_album:
       required: true
 del_artist:
   method: get
+  response: status
   params:
     - key: cmd
       value: delArtist
@@ -84,6 +97,7 @@ del_artist:
       required: true
 pause_artist:
   method: get
+  response: status
   params:
     - key: cmd
       value: pauseArtist
@@ -91,6 +105,7 @@ pause_artist:
       required: true
 resume_artist:
   method: get
+  response: status
   params:
     - key: cmd
       value: resumeArtist
@@ -98,6 +113,7 @@ resume_artist:
       required: true
 refresh_artist:
   method: get
+  response: status
   params:
     - key: cmd
       value: refreshArtist
@@ -105,6 +121,7 @@ refresh_artist:
       required: true
 queue_album:
   method: get
+  response: status
   params:
     - key: cmd
       value: queueAlbum
@@ -116,6 +133,7 @@ queue_album:
       required: false
 unqueue_album:
   method: get
+  response: status
   params:
     - key: cmd
       value: unqueueAlbum
@@ -123,11 +141,13 @@ unqueue_album:
       required: true
 force_search:
   method: get
+  response: status
   params:
     - key: cmd
       value: forceSearch
 force_process:
   method: get
+  response: status
   params:
       - key: cmd
         value: forceProcess
@@ -135,6 +155,7 @@ force_process:
         required: false
 force_active_artists_update:
   method: get
+  response: status
   params:
     - key: cmd
       value: forceActiveArtistsUpdate
@@ -145,26 +166,31 @@ get_version:
       value: getVersion
 check_github:
   method: get
+  response: status
   params:
     - key: cmd
       value: checkGithub
 shutdown:
   method: get
+  response: status
   params:
     - key: cmd
       value: shutdown
 restart:
   method: get
+  response: status
   params:
     - key: cmd
       value: restart
 update:
   method: get
+  response: status
   params:
     - key: cmd
       value: update
 get_artist_art:
   method: get
+  response: path
   params:
     - key: cmd
       value: getArtistArt
@@ -172,6 +198,7 @@ get_artist_art:
       required: true
 get_artist_info:
   method: get
+  response: json
   params:
     - key: cmd
       value: getArtistInfo
@@ -179,6 +206,7 @@ get_artist_info:
       required: true
 get_album_info:
   method: get
+  response: json
   params:
     - key: cmd
       value: getAlbumInfo
@@ -186,6 +214,7 @@ get_album_info:
       required: true
 get_artist_thumb:
   method: get
+  response: path
   params:
     - key: cmd
       value: getArtistThumb
@@ -193,6 +222,7 @@ get_artist_thumb:
       required: true
 get_album_thumb:
   method: get
+  response: path
   params:
     - key: cmd
       value: getAlbumThumb
@@ -200,6 +230,7 @@ get_album_thumb:
       required: true
 choose_specific_download:
   method: get
+  response: json
   params:
     - key: cmd
       value: choose_specific_download

@@ -37,8 +37,12 @@ class Hphones
 
     def fetch
       api_params = compile_params
-      req = Hphones::Request.new(api)
+      req = Hphones::Request.new(api, self)
       req.send endpoint_info['method'], api_params
+    end
+
+    def response_type
+      endpoint_info['response']
     end
 
     private
